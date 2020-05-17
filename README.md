@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Carly07/e-commerce.svg?branch=master)](https://travis-ci.com/Carly07/e-commerce)
+
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 Welcome Carly07,
