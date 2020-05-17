@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static from staticfiles %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,16 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>Ecommerce | {% block page_title %}{% endblock %}</title>
+    <title>Ecommerce</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/fontawesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
     <script src="https://kit.fontawesome.com/dec7c3a058.js" crossorigin="anonymous"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    {% block head_js %}
-    {% endblock head_js %}
+    
 </head>
 <body>
      <!-- Fixed Navbar -->
@@ -32,11 +31,11 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 {%  else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                 {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'view_cart' %}">
@@ -81,5 +80,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {% block head_js %}
+    {% endblock head_js %}
 </body>
 </html>
